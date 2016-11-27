@@ -1,0 +1,46 @@
+[
+  {
+    "_id": 123,
+    "firstName": "Alice",
+    "lastName": "Wonderland",
+    "userName": "alice",
+    "password": "alice",
+    "email": "alice@redff.com",
+    "roles": ["user"]
+  },
+  {
+    "_id": 234,
+    "firstName": "Bob",
+    "lastName": "Hope",
+    "userName": "bob",
+    "password": "bob",
+    "email": "bob@rediff.com",
+    "roles": ["admin"]
+  },
+  {
+    "_id": 345,
+    "firstName": "Charlie",
+    "lastName": "Brown",
+    "userName": "charlie",
+    "password": "charlie",
+    "email": "charlie@rediff.com",
+    "roles": ["user"]
+  },
+  {
+    "_id": 456,
+    "firstName": "Dan",
+    "lastName": "Craig",
+    "userName": "dan",
+    "password": "dan",
+    "email": "dan@rediff.com",
+    "roles": ["user", "admin"]
+  },
+  {
+    "_id": 567,
+    "firstName": "Edward",
+    "lastName": "Norton",
+    "userName": "ed",
+    "password": "ed",
+    "email": "ed@rediff.com",
+    "roles": ["user"]
+  }]

@@ -1,0 +1,56 @@
+<div ng-controller="AdminController as model">
+    <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1 main">
+        <h1 class="page-header">Admin</h1>
+        <h2>Users</h2>
+    </div>
+    <div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1 main">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        <span ng-click="sortType = 'userName'; sortReverse = !sortReverse" ng-show="!sortReverse" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                        <span ng-click="sortType = 'userName'; sortReverse = !sortReverse" ng-show="sortReverse" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                        User Name
+                    </th>
+                    <th><span>Password</span></th>
+                    <th>
+                        <span ng-click="sortType = 'firstName'; sortReverse = !sortReverse" ng-show="!sortReverse" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                        <span ng-click="sortType = 'firstName'; sortReverse = !sortReverse" ng-show="sortReverse" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                        FirstName
+                    </th>
+                    <th>
+                        <span ng-click="sortType = 'lastName'; sortReverse = !sortReverse"  ng-show="!sortReverse" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                        <span ng-click="sortType = 'lastName'; sortReverse = !sortReverse"  ng-show="sortReverse" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                        LastName
+                    </th>
+                    <th><span>Roles</span></th>
+                    <th><span>Actions</span></th>
+                    <th><span>&nbsp;</span></th>
+                </tr>
+
+                <tr>
+                    <td><input ng-model="model.selected.userName" type="text" id="userName" placeholder="username"></td>
+                    <td><input ng-model="model.selected.password" type="password" id="inputPassword" placeholder="password"></td>
+                    <td><input ng-model="model.selected.firstName" type="text" id="firstName" placeholder="firstname"></td>
+                    <td><input ng-model="model.selected.lastName" type="text" id="lastName" placeholder="lastname"></td>
+                    <td><input ng-model="model.selected.roles" type="text" id="role" placeholder="role1, role2"></td>
+                    <td><button ng-click="model.update(model.selected)" class="btn btn-primary">&check;</button></td>
+                    <td><button ng-click="model.add(model.selected)" class="btn btn-success">&plus;</button></td>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="user in model.users| orderBy:sortType:sortReverse">
+                    <td class="lalign">{{user.userName}}</td>
+                    <td></td>
+                    <td class="lalign">{{user.firstName}}</td>
+                    <td class="lalign">{{user.lastName}}</td>
+                    <td>{{user.roles}}</td>
+                    <td><button ng-click="model.select(user)" class="btn btn-success">...</button></td>
+                    <td><button ng-click="model.remove(user)" class="btn btn-danger">X</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

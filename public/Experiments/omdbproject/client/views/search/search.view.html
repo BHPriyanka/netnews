@@ -1,0 +1,37 @@
+<h2>Seach</h2>
+
+<input ng-model="model.movie.title"
+       class="form-control"
+       placeholder="Batman"/>
+
+<button ng-click="model.search(model.movie)"
+        class="btn btn-primary btn-block">
+    Search
+</button>
+
+<div ng-if="model.data">
+    <h3>Search Results</h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>IMDB</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="movie in model.data.Search">
+            <td>
+                <img ng-src="{{movie.Poster}}"
+                     height="100px"/>
+            </td>
+            <td>
+                <a href="#/details/{{movie.imdbID}}">
+                    {{movie.Title}}
+                </a>
+            </td>
+            <td>{{movie.imdbID}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

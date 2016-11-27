@@ -1,0 +1,47 @@
+<div ng-controller="EntertainmentController as model">
+    <br>
+    <div ng-repeat="entry in data.response.results" class="text-center">
+            <div class="col-sm-6 col-xs-6 col-md-4 col-lg-4">
+                <div ng-if="$index%3==0" class="thumbnail">
+                    <img class="full-width img-responsive img-rounded" ng-src="{{entry.fields.thumbnail}}"/>
+                    <div class="caption">
+                        <h4 class="headLine">
+                            <a class="filmColor" href="#/details/{{entry.id}}" ng-bind-html="model.trustAsHtml(entry.fields.headline)">{{entry.fields.headline}}</a>
+                        </h4>
+                        <p class="trail" ng-bind-html="model.trustAsHtml(entry.fields.trailText)">
+                            {{entry.fields.trailText}}
+                        </p>
+                    </div>
+                </div>
+                <div ng-if="$index%3==1" class="thumbnail">
+                    <img class="full-width img-responsive img-rounded" ng-src="{{entry.fields.thumbnail}}"/>
+                    <div class="caption">
+                        <h4 class="headLine">
+                            <a class="filmColor" href="#/details/{{entry.id}}" ng-bind-html="model.trustAsHtml(entry.fields.headline)">{{entry.fields.headline}}</a>
+                        </h4>
+                        <p class="trail" ng-bind-html="model.trustAsHtml(entry.fields.trailText)">
+                            {{entry.fields.trailText}}
+                        </p>
+                    </div>
+                </div>
+                <div ng-if="$index%3==2" class="thumbnail">
+                    <img class="full-width img-responsive img-rounded" ng-src="{{entry.fields.thumbnail}}"/>
+                    <div class="caption">
+                        <h4 class="headLine">
+                            <a class="filmColor" href="#/details/{{entry.id}}" ng-bind-html="model.trustAsHtml(entry.fields.headline)">{{entry.fields.headline}}</a>
+                        </h4>
+                        <p class="trail" ng-bind-html="model.trustAsHtml(entry.fields.trailText)">
+                            {{entry.fields.trailText}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div ng-if="data.response.results" class="pull-right">
+        <ul class="pagination">
+            <li ng-hide="model.isCurrentPage(currentPage)"><a ng-click="model.prev(currentPage)" class="btn btn-link">Prev</a></li>
+            <li><a ng-click="model.next(currentPage)" class="btn btn-link">Next</a></li>
+        </ul>
+    </div>
+    </div>

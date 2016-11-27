@@ -1,0 +1,69 @@
+<div ng-controller="DetailsController as model">
+    <div class="container col-sm-12 col-md-12 col-lg-12">
+        <h3 align="center" ng-bind-html="model.customHead">
+            {{model.data.response.content.fields.headline}}
+        </h3>
+        <h4 align="center" ng-bind-html="model.customstandFirst">
+            {{model.data.response.content.fields.standfirst}}</h4>
+        <button class="btn btn-primary pull-right" ng-click="model.favorite(model.id, model.data)">
+            <span class="glyphicon glyphicon-star-empty"></span>
+        </button>
+    </div>
+    <div align="center">
+        <img class="img img-responsive img-rounded" ng-src="{{model.data.response.content.fields.thumbnail}}"/>
+    </div>
+        <div ng-bind-html="model.customBody">
+            {{model.data.response.content.fields.body}}
+        </div>
+
+    <div class="container col-sm-6 col-md-12 col-lg-12">
+    <div class="review">
+        <div ng-if="model.userLikes.length">
+            <h4><strong>Users who Like this Article</strong></h4>
+            <ul>
+                <li ng-repeat="user in model.userLikes">
+                    <a href="#" ng-click="model.getUserProfile(user._id)">
+                        {{user.userName}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container col-sm-6 col-md-12 col-lg-12">
+    <div ng-if="model.userComments.length">
+        <h4><strong>Reviews on this Article</strong></h4>
+        <ul>
+            <li ng-repeat="user in model.userComments">
+                <a href="#" ng-click="model.getUserProfile(user.userId)">
+                    <h5>{{user.userName}}</h5>
+                </a>
+                <div class="pull-right">{{user.reviewDate}}</div>
+                <div>
+                    <h4>Review : {{user.reviewDesc}}<h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    &nbsp;
+    <div class="row ng-scope">
+        <div class="col-md-16">
+            <h4>Add Your Review</h4>
+        </div>
+    </div>
+    <div class="row ng-scope">
+        <div class="col-md-16">
+            <textarea ng-model="model.userReview" class="form-control" maxlength="700" placeholder="Your Review for upto 700 characters"></textarea>
+        </div>
+    </div>
+    <div class="row ng-scope">
+        <div class="col-md-16 text-right">
+            <button ng-click="model.submitReview(model.userReview, model.id, model.data)" type="button" class="btn btn-primary btn-sm btn-block">Submit Review</button>
+        </div>
+    </div>
+</div>
+
